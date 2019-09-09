@@ -13,8 +13,9 @@ public class test {
     }
 
     private static void JsonUtilTest(){
-        UserForTest userForTest = JsonUtil.readValue("{\"name\":\"Jady\",\"id\":123456,\"age\":20}",UserForTest.class);
-        String testString = JsonUtil.writeValueAsString(userForTest);
+        UserForTest userForTest = JsonUtil.readValue("{\"name\":\"Jady\n" +
+                "\",\"id\":0123456,\"age\":20,\"score\":\"INF\"}",UserForTest.class);
+        String testString = JsonUtil.toJsonString(userForTest);
         log.info(testString);
     }
 }
