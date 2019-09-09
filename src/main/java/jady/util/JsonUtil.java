@@ -64,14 +64,4 @@ public class JsonUtil {
         }
         return result;
     }
-
-    public static <T> T readValue(String content, JavaType javaType) {
-        T result;
-        try {
-            result = objectMapper.readValue(content, javaType);
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
-        return result;
-    }
 }
