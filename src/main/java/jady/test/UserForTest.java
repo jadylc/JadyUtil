@@ -10,5 +10,5 @@ class UserForTest {
     private String name;
     private Long id;
     private Integer age;
-    //private Double score;
+    private Double score;
 }
