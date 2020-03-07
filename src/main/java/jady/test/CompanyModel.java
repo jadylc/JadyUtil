@@ -1,6 +1,8 @@
 package jady.test;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -16,4 +18,6 @@ public class CompanyModel {
     private String status;
     private List<String> list;
     private UserForTest userForTest;
+    private boolean active;
+    private Boolean activie;
 }

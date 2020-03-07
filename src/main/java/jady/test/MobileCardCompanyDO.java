@@ -16,4 +16,6 @@ public class MobileCardCompanyDO {
     private String status;
     private List<String> list;
     private UserForTest userForTest;
+    private boolean active;
+    private Boolean activie;
 }

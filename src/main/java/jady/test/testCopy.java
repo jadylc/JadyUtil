@@ -18,6 +18,8 @@ public class testCopy {
         cardPayOrderModel.setId(2l);
         cardPayOrderModel.setStatus("1");
         cardPayOrderModel.setList(Lists.newArrayList("123","321"));
+        cardPayOrderModel.setActive(true);
+        cardPayOrderModel.setActivie(true);
         UserForTest userForTest = new UserForTest();
         userForTest.setAge(134);
         userForTest.setId(1L);
