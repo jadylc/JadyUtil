@@ -2,7 +2,6 @@ package jady.leetcode.medium;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Arrays;
 
 /**
  * Created by liuhan on 2020/3/9.
