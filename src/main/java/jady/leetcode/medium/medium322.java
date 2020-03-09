@@ -1,4 +1,4 @@
-package jady.leetcode;
+package jady.leetcode.medium;
 
 import lombok.extern.slf4j.Slf4j;
 

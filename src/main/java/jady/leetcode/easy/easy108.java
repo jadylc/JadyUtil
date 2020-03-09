@@ -1,4 +1,4 @@
-package jady.leetcode;
+package jady.leetcode.easy;
 
 import jady.common.TreeNode;
 import lombok.extern.slf4j.Slf4j;
