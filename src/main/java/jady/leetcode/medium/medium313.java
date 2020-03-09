@@ -15,7 +15,7 @@ public class medium313 {
     }
 
     public static int nthSuperUglyNumber(int n, int[] primes) {
-        //丑数序列
+        //丑数序列，下一个一定是现有序列中的一个乘以primes中的一个，记录primes中的每一个乘到序列中的哪一个了，所以下一个产生于四个备选乘积
         int[] dp = new int[n];
         int[] index = new int[primes.length];
         dp[0] = 1;

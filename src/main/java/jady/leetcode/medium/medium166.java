@@ -8,6 +8,7 @@ import java.util.Map;
 /**
  * @author liuhan
  * @date 2019/09/26
+ * https://leetcode-cn.com/problems/fraction-to-recurring-decimal/
  */
 @Slf4j
 public class medium166 {
