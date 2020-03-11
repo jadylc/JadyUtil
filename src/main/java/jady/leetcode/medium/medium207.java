@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author liuhan
  * @date 2020/03/07
  * https://leetcode-cn.com/problems/course-schedule/
+ * 广度优先/深度优先
  */
 @Slf4j
 public class medium207 {
@@ -23,7 +24,33 @@ public class medium207 {
         pre[3][0] = 3;
         pre[3][1] = 2;
 
-        log.info("result = {}",canFinish(4, pre));
+        log.info("result = {}",canFinish1(4, pre));
+    }
+
+    public static boolean canFinish1(int numCourses, int[][] prerequisites){
+        int[] indegrees = new int[numCourses];
+        for(int[] cp : prerequisites) {
+            indegrees[cp[1]]++;
+        }
+        LinkedList<Integer> queue = new LinkedList<>();
+        for(int i = 0; i < numCourses; i++){
+            if(indegrees[i] == 0) {
+                queue.addLast(i);
+            }
+        }
+        while(!queue.isEmpty()) {
+            Integer pre = queue.removeFirst();
+            numCourses--;
+            for(int[] req : prerequisites) {
+                if(req[0] != pre) {
+                    continue;
+                }
+                if(--indegrees[req[1]] == 0) {
+                    queue.add(req[1]);
+                }
+            }
+        }
+        return numCourses == 0;
     }
 
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
