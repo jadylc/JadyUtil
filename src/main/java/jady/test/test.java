@@ -40,18 +40,25 @@ public class test {
 
         //JsonUtilTest();
         //GsonUtilTest();
-        List<String> list = Lists.newArrayList("1","2","3","4","5");
-        String a = list.stream().map(n -> n+1).collect(Collectors.joining("&","",""));
+        //List<String> list = Lists.newArrayList();
+       // String a =  Optional.of(list).map(m -> m.get(0)).orElse(null);
+        //Map<String,List<Integer>> jmap = list.stream().collect(Collectors.toMap(Function.identity(), n->Lists.newArrayList()));
+        //String a = list.stream().map(n -> n+1).collect(Collectors.joining("&","",""));
         //List<List<Integer>> list1 = Lists.partition(list, 6);
-        String ids = "1,2,3,4,5,6";
-        StreamSupport.stream(Splitter.on(",").split(ids).spliterator(), false)
-                .map(Long::parseLong).
-                forEach(System.out::println);
+        //String ids = "1,2,3,4,5,6";
+        //StreamSupport.stream(Splitter.on(",").split(ids).spliterator(), false)
+        //        .map(Long::parseLong).
+        //        forEach(System.out::println);
+        //handle(list);
+        for (int i = 0; i < 1; i++) {
+            System.out.println(i);
+        }
+        //System.out.println(list);
+        System.out.println(1);
 
-
-
-
-
+    }
+    private static void handle(List<String> list){
+        list.removeIf(a -> Objects.equals(a, "5"));
     }
 
     private static LoadingCache<String, PromotionActivityCache> activityInfoCache = CacheBuilder

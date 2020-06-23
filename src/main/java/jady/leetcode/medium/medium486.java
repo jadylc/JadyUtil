@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class medium486 {
     public static void main(String[] args) {
-        int[] nums = new int[]{1,5,2,3,2,5,1};
+        int[] nums = new int[]{1,3,16,8,7,100,9};
         log.info("result = {}",PredictTheWinner(nums));
     }
 
