@@ -53,8 +53,12 @@ public class test {
         for (int i = 0; i < 1; i++) {
             System.out.println(i);
         }
+        Double as = 119.0D;
+        Double ass = 91.0D;
         //System.out.println(list);
-        System.out.println(1);
+        boolean a = as.compareTo(0D) == 0D
+                && ass.compareTo(0D) != 0D;
+        System.out.println(a);
 
     }
     private static void handle(List<String> list){

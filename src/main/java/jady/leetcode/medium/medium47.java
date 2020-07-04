@@ -8,7 +8,6 @@ import java.util.*;
  * @author liuhan
  * @date 2020/06/24
  * https://leetcode-cn.com/problems/permutations-ii/
- * todo 未解决
  */
 @Slf4j
 public class medium47 {
@@ -19,36 +18,54 @@ public class medium47 {
 
     public static List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
+        if(nums.length == 0){
+            return list;
+        }
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             map.merge(num, 1, Integer::sum);
         }
-        return handle(list, map);
+        List<Integer> keys = new ArrayList<>(map.keySet());
+        keys.forEach(k -> {
+            List<Integer> subList = new ArrayList<>();
+            subList.add(k);
+            Map<Integer, Integer> remainMap = getRemainMap(map, k);
+            List<List<Integer>> subResult = new ArrayList<>();
+            subResult.add(subList);
+            list.addAll(handle(subResult, remainMap));
+        });
+        return list;
     }
+
     public static List<List<Integer>> handle(List<List<Integer>> list, Map<Integer, Integer> map){
-        Map<Integer, Integer> map1 = new HashMap<>(map);
-        List<List<Integer>> result = new ArrayList<>();
-        if(list.isEmpty()){
-            for (Map.Entry<Integer, Integer> entry : map1.entrySet()) {
-                List<Integer> subList = new ArrayList<>();
-                subList.add(entry.getKey());
-                entry.setValue(entry.getValue() - 1);
-                list.add(subList);
-                result.addAll(handle(list, map1));
-            }
-        } else {
-            for (Map.Entry<Integer, Integer> entry : map1.entrySet()) {
-                for (List<Integer> subList : list) {
-                    if(entry.getValue()>0){
-                        subList.add(entry.getKey());
-                        result.add(subList);
-                        entry.setValue(entry.getValue() - 1);
-                        return handle(result, map1);
-                    }
-                }
-            }
+        if(map.isEmpty()){
+            return list;
         }
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> keys = new ArrayList<>(map.keySet());
+        list.forEach(s -> {
+            keys.forEach(k -> {
+                List<Integer> subList = new ArrayList<>(s);
+                subList.add(k);
+                Map<Integer, Integer> remainMap = getRemainMap(map, k);
+                List<List<Integer>> subResult = new ArrayList<>();
+                subResult.add(subList);
+                result.addAll(handle(subResult, remainMap));
+            });
+        });
         return result;
     }
+
+    public static Map<Integer, Integer> getRemainMap(Map<Integer, Integer> map,Integer k){
+        Map<Integer, Integer> newMap = new HashMap<>(map);
+        if (newMap.get(k) == 1) {
+            newMap.remove(k);
+        }else {
+            newMap.put(k, map.get(k) -1);
+        }
+        return newMap;
+    }
+
+
 
 }
